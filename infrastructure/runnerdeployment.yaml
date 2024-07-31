@@ -1,0 +1,16 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: wdc-assigment-runner
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: amirlevis/wdc-devops-assignment
+      labels:
+        - my-cool-custom-scaleset
+      env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
