@@ -11,6 +11,9 @@ on:
 jobs:
   Demo_CI:
     runs-on: my-cool-custom-scaleset
+
+    env:
+      CHUCK_API: "https://api.chucknorris.io/jokes/random"
     
     steps:
       - uses: actions/checkout@v4
