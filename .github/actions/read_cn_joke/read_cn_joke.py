@@ -19,7 +19,7 @@ class ChuckNorris(Base):
         self.parser.add_argument("--url", dest="url", help="url to Chuck Norris API URL", default=None)
 
     def prepare(self):
-        self.add_arguments()
+        pass
 
     def run(self):
         response = requests.get(self.args.url)
@@ -37,4 +37,4 @@ class ChuckNorris(Base):
         pass
 
 if __name__ == '__main__':
-    sys.exit(Base().execute())
+    sys.exit(ChuckNorris().execute())
