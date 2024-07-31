@@ -19,7 +19,7 @@ class ChuckNorris(Base):
         self.parser.add_argument("--url", dest="url", help="url to Chuck Norris API URL", default=None)
 
     def prepare(self):
-        self.parse_arguments()
+        self.add_arguments()
 
     def run(self):
         response = requests.get(self.args.url)
