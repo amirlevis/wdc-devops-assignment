@@ -21,7 +21,7 @@ class PodExposer(Base):
         pass
 
     def run(self):
-        pod_name = os.environ.get("POD_NAME")
+        pod_name = os.getenv('POD_NAME')
         if pod_name is not None:
             print(pod_name)
         else:
