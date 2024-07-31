@@ -12,9 +12,7 @@ jobs:
   Demo_CI:
     runs-on: my-cool-custom-scaleset
 
-    env:
-      CHUCK_API: "https://api.chucknorris.io/jokes/random"
-    
+
     steps:
       - uses: actions/checkout@v4
       
@@ -29,6 +27,8 @@ jobs:
         uses: ./.github/actions/read_cn_joke
         with:
           url: ${{ vars.CHUCK_API }}
+        env:
+          CHUCK_API: "https://api.chucknorris.io/jokes/random"
           
       - name: Return Pod Name
         id: get_pod_name
