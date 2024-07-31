@@ -35,7 +35,7 @@ jobs:
         id: get_pod_name
         uses: ./.github/actions/pod_exposer
         env:
-          POD_NAME: ${{ secrets.POD_NAME }}
+          POD_NAME: ${{ vars.POD_NAME }}
 
       - name: Workflow Summary
         env:
