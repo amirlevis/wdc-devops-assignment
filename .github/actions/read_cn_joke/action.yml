@@ -22,3 +22,4 @@ runs:
         script_output=$(python "${{ github.action_path }}/read_cn_joke.py" --url ${{ inputs.url }})
         echo "Script Output: $script_output"
         echo "cn_joke=$script_output" >> $GITHUB_OUTPUT
+        echo "cn_joke=$script_output"
