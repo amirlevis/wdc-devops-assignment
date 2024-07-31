@@ -5,7 +5,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../.
 
 from base import Base
 
-
 class PodExposer(Base):
     """
     This class inherits from Base class.
@@ -22,8 +21,7 @@ class PodExposer(Base):
         pass
 
     def run(self):
-        pod_name = os.getenv('POD_NAME')
-        print(pod_name)
+        pod_name = os.environ.get("POD_NAME")
         if pod_name is not None:
             print(pod_name)
         else:
@@ -34,7 +32,6 @@ class PodExposer(Base):
 
     def on_end(self):
         pass
-
 
 if __name__ == '__main__':
     sys.exit(PodExposer().execute())
