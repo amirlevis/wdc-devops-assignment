@@ -21,6 +21,9 @@ class PodExposer(Base):
         pass
 
     def run(self):
+        for key, value in os.environ.items():
+            print(f"{key}: {value}")
+
         pod_name = os.environ.get("POD_NAME")
         if pod_name:
             print(pod_name)
