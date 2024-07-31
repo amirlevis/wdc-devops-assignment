@@ -24,20 +24,20 @@ jobs:
           python-version: '3.10'
       
       - run: pip install requests
-      
+
       - name: Read Chuck Norris Joke
         id: read_cn_joke
         uses: ./.github/actions/read_cn_joke
         with:
           url: ${{ env.CHUCK_API }}
-          
+
       - name: Return Pod Name
         id: get_pod_name
         uses: ./.github/actions/pod_exposer
-        
+
       - name: Workflow Summary
         env:
-          CN_JOKE: "${{ steps.read_cn_joke.outputs.cn_joke }}"
-          POD_NAME: "${{ steps.get_pod_name.outputs.pod_name }}"
+          CN_JOKE: ${{ steps.read_cn_joke.outputs.cn_joke }}
+          POD_NAME: ${{ steps.get_pod_name.outputs.pod_name }}
         shell: bash
-        run: echo "CN_JOKE on POD_NAME" >> $GITHUB_STEP_SUMMARY
+        run: echo "$CN_JOKE on $POD_NAME" >> $GITHUB_STEP_SUMMARY
