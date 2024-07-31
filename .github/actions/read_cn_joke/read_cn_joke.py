@@ -26,7 +26,7 @@ class ChuckNorris(Base):
         if response.status_code == 200:
             data = response.json()
             joke = data.get("value", "No joke found.")
-            return joke
+            print(joke)
         else:
             raise Exception("Failed to retrieve a joke.")
 
