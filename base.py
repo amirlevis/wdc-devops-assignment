@@ -1,5 +1,6 @@
 import argparse
 
+
 class Base:
     def __init__(self):
         self.parser = argparse.ArgumentParser()

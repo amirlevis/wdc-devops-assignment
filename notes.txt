@@ -1,0 +1,17 @@
+Commands:
+
+Terraform:
+terraform init
+terraform plan
+terraform apply
+
+Kubernetes/Helm:
+kubectl edit configmap aws-auth -n kube-system
+kubectl create namespace actions-runner-system
+helm repo add actions-runner-controller https://actions-runner-controller.github.io/actions-runner-controller
+helm.exe upgrade --install --namespace actions-runner-system --create-namespace --wait actions-runner-controller actions-runner-controller/actions-runner-controller
+kubectl create secret generic controller-manager -n actions-runner-system --from-literal=github_app_id=<app_id> --from-literal=github_app_installation_id=<installation_app_id> --from-file=github_app_private_key=<path_to_key>
+kubectl apply -f runnerdeployment.yaml
+
+
+
