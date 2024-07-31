@@ -21,11 +21,8 @@ class PodExposer(Base):
         pass
 
     def run(self):
-        for key, value in os.environ.items():
-            print(f"{key}: {value}")
-
         pod_name = os.environ.get("POD_NAME")
-        if pod_name:
+        if pod_name is not None:
             print(pod_name)
         else:
             raise Exception("Failed to get the runner pod's name.")
